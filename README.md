@@ -1,5 +1,4 @@
 # nvim
-nvim config
 
 required stuff before using this config:
 
