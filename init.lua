@@ -5,9 +5,11 @@ require('lsp-config.null-ls')
 -- require('lsp-config.handlers')
 require('plugins.nvim-tree')
 require('plugins.bufferline')
+require('plugins.gitsigns')
 require('keymaps')
 
-vim.wo.number = true
-vim.bo.expandtab = true
-vim.bo.shiftwidth = 2
-vim.bo.softtabstop = 2
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2

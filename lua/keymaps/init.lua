@@ -7,8 +7,15 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Insert --
+--
 --  jk to enter
 keymap('i', 'jk', '<Esc>', opts)
+
+-- Move Lines ↑ & ↓ --
+keymap('n', 'K', ':m .-2<cr>==', opts)
+keymap('n', 'J', ':m .+1<cr>==', opts)
+keymap('v', 'K', ":m '<-2<cr>gv=gv", opts)
+keymap('v', 'J', ":m '>+1<cr>gv=gv", opts)
 
 -- NvimTree --
 keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
@@ -16,7 +23,7 @@ keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
 -- bufferline --
 keymap('n', '<C-l>', ':BufferLineCycleNext<cr>', opts)
 keymap('n', '<C-h>', ':BufferLineCyclePrev<cr>', opts)
-keymap('n', '<C-w>', ':Bdelete<cr>', opts)
+keymap('n', '<C-Q>q', ':Bdelete<cr>', opts)
 
 -- NullLs --
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])

@@ -3,6 +3,12 @@ require('packer').startup(function(use)
   use('ellisonleao/gruvbox.nvim')
   use('moll/vim-bbye')
   use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end,
+  })
+  use({
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
       require('null-ls').setup()
