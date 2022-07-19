@@ -7,7 +7,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Insert --
---
 --  jk to enter
 keymap('i', 'jk', '<Esc>', opts)
 
