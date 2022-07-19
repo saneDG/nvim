@@ -17,6 +17,12 @@ keymap('n', 'J', ':m .+1<cr>==', opts)
 keymap('v', 'K', ":m '<-2<cr>gv=gv", opts)
 keymap('v', 'J', ":m '>+1<cr>gv=gv", opts)
 
+-- LSP diagnostics --
+vim.keymap.set('n', '<leader>r', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+
 -- NvimTree --
 keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
 
