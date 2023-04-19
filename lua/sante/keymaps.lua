@@ -10,8 +10,8 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 keymap('i', 'jk', '<Esc>', opts)
 
 -- Move Lines ↑ & ↓ --
-keymap('n', 'K', ':m .-2<cr>==', opts)
-keymap('n', 'J', ':m .+1<cr>==', opts)
-keymap('v', 'K', ":m '<-2<cr>gv=gv", opts)
-keymap('v', 'J', ":m '>+1<cr>gv=gv", opts)
+keymap('n', '<C-k>', ':m .-2<cr>==', opts)
+keymap('n', '<C-j>', ':m .+1<cr>==', opts)
+keymap('v', '<C-k>', ":m '<-2<cr>gv=gv", opts)
+keymap('v', '<C-j>', ":m '>+1<cr>gv=gv", opts)
 

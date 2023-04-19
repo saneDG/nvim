@@ -1,3 +1,11 @@
+local menu_width = 80
+
+require("harpoon").setup({
+  menu = {
+    width = menu_width
+  }
+})
+
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
