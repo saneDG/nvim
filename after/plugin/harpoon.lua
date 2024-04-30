@@ -1,4 +1,4 @@
-local menu_width = 80
+local menu_width = 100
 
 require("harpoon").setup({
   menu = {

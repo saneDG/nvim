@@ -2,10 +2,21 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  -- Replace the language servers listed here 
+  -- with the ones you want to install
+  ensure_installed = {'tsserver', 'eslint'},
+  handlers = {
+    lsp.default_setup,
+  },
 })
+
+
+-- lsp.ensure_installed({
+--   'tsserver',
+--   'eslint',
+-- })
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua_ls', {
@@ -20,17 +31,25 @@ lsp.configure('lua_ls', {
 
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+local cmp_action = require('lsp-zero').cmp_action()
+cmp.setup({
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  ['<C-p>'] = cmp_action.luasnip_jump_forward(),
+  ['<C-n>'] = cmp_action.luasnip_jump_backward(),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
+  ['<Tab>'] = nil,
+  ['<S-Tab>'] = nil
 })
 
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
+-- disable completion with tab
+-- this helps with copilot setup
+-- This doesn't seem to work though
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
 
 lsp.set_preferences({
   sign_icons = {

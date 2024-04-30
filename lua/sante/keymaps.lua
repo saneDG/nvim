@@ -3,7 +3,12 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Remap <leader> --
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>h', ':wincmd h<cr>')
+vim.keymap.set('n', '<leader>l', ':wincmd l<cr>')
+vim.keymap.set('n', '<leader>j', ':wincmd j<cr>')
+vim.keymap.set('n', '<leader>k', ':wincmd k<cr>')
 
 -- Insert --
 --  jk to enter
