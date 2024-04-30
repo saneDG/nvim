@@ -51,13 +51,11 @@ cmp.setup({
 -- cmp_mappings['<Tab>'] = nil
 -- cmp_mappings['<S-Tab>'] = nil
 
-lsp.set_preferences({
-  sign_icons = {
+lsp.set_sign_icons({
     error = 'E',
     warn = 'W',
     hint = 'H',
     info = 'I'
-  }
 })
 
 lsp.on_attach(function(client, bufnr)
