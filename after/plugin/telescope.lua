@@ -14,6 +14,7 @@ function vim.getVisualSelection()
 end
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fi', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fd', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('v', '<leader>fs', function()

@@ -4,9 +4,9 @@ lsp.preset("recommended")
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Replace the language servers listed here 
+  -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'tsserver', 'eslint'},
+  ensure_installed = { 'tsserver', 'eslint' },
   handlers = {
     lsp.default_setup,
   },
@@ -37,12 +37,14 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  ['<C-p>'] = cmp_action.luasnip_jump_forward(),
-  ['<C-n>'] = cmp_action.luasnip_jump_backward(),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-  ['<Tab>'] = nil,
-  ['<S-Tab>'] = nil
+  mapping = cmp.mapping.preset.insert({
+    ['<C-p>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-n>'] = cmp_action.luasnip_jump_backward(),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil,
+  })
 })
 
 -- disable completion with tab
@@ -52,10 +54,10 @@ cmp.setup({
 -- cmp_mappings['<S-Tab>'] = nil
 
 lsp.set_sign_icons({
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
+  error = 'E',
+  warn = 'W',
+  hint = 'H',
+  info = 'I'
 })
 
 lsp.on_attach(function(client, bufnr)
