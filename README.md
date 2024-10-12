@@ -13,9 +13,14 @@ use neovim
 
     nvim
 
-
 --- 
 
 plugins: https://github.com/saneDG/nvim/tree/main/lua/plugins
-native configs: https://github.com/saneDG/nvim/blob/main/lua/settings.lua
+
+configs: https://github.com/saneDG/nvim/blob/main/lua/settings.lua
+
 keymaps: https://github.com/saneDG/nvim/blob/main/lua/keymaps.lua
+
+--- 
+
+package manager: https://github.com/folke/lazy.nvim
