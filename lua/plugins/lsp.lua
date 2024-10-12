@@ -1,11 +1,9 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  branch = "v3.x",
+  branch = "v4.x",
   dependencies = {
-    { "neovim/nvim-lspconfig" }, -- Required
-    {
-      "williamboman/mason.nvim",
-    },
+    { "neovim/nvim-lspconfig" },             -- Required
+    { "williamboman/mason.nvim", },
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
     { "hrsh7th/nvim-cmp" },                  -- Required
     { "hrsh7th/cmp-nvim-lsp" },              -- Required
