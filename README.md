@@ -1,4 +1,4 @@
-# nvim
+# neovim config
 
 install neovim
 
