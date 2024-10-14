@@ -1,5 +1,5 @@
 require("settings")
+require("keymaps")
 require("usercommands")
 require("lazybootstrap")
-require("keymaps")
 require("lazy").setup("plugins")
