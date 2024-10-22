@@ -13,5 +13,5 @@ vim.o.tabstop = 8
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
--- vim.o.ignorecase = false
--- vim.o.smartcase = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
