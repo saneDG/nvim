@@ -14,7 +14,6 @@ vim.keymap.set('n', '<leader>j', ':wincmd j<cr>')
 vim.keymap.set('n', '<leader>k', ':wincmd k<cr>')
 
 -- Insert --
---  jk to enter
 keymap('i', 'jk', '<Esc>', opts)
 
 -- Move Lines ↑ & ↓ --
