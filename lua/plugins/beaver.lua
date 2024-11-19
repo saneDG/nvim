@@ -1,8 +1,9 @@
 return {
-  -- 'saneDG/beaver.nvim',
-  -- opts = {}
+  'saneDG/beaver.nvim',
+  opts = {}
 }
 -- return {
 --   dir = "~/Developer/nvim/beaver",
---   opts= {}
+--   dependencies = { "nvim-lua/plenary.nvim" },
+--   opts = {}
 -- }
