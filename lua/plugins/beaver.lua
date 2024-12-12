@@ -4,6 +4,5 @@ return {
 }
 -- return {
 --   dir = "~/Developer/nvim/beaver",
---   dependencies = { "nvim-lua/plenary.nvim" },
 --   opts = {}
 -- }
