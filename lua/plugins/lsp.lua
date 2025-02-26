@@ -108,6 +108,7 @@ return {
           vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
           vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
           vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+          vim.keymap.set("n", "<leader>vv", function() vim.diagnostic.setqflist() end, opts)
           vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
           vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
             vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
@@ -116,7 +117,7 @@ return {
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls', 'clojure_lsp' },
+        ensure_installed = { 'clojure_lsp', 'lua_ls'  },
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
