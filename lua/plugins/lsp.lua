@@ -17,6 +17,14 @@ return {
     'rafamadriz/friendly-snippets'
   },
   {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = { "black" },
+      },
+    },
+  },
+  {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
@@ -110,14 +118,45 @@ return {
           vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
           vim.keymap.set("n", "<leader>vv", function() vim.diagnostic.setqflist() end, opts)
           vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+          -- get clients, check filetype and fallback to python formatting with "black"
           vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
-            vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+            local clients = vim.lsp.get_clients({ bufnr = 0 })
+            local supports_format = false
+
+            for _, client in ipairs(clients) do
+              if client.server_capabilities.documentFormattingProvider then
+                supports_format = true
+                break
+              end
+            end
+
+            if supports_format then
+              vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+            elseif vim.bo.filetype == "python" then
+              require("conform").format({ async = true })
+            else
+              vim.notify("No formatter available", vim.log.levels.WARN)
+            end
           end, opts)
+          --
+          -- you configured formatter to check if lsp formatting is supported
+          -- and fallback to black if not. To only use lsp-formatting use this:
+          --
+          -- vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
+          --   vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+          -- end, opts)
+          --
+          -- this works for python:
+          --
+          -- vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
+          --   require("conform").format({ async = true, lsp_fallback = true })
+          -- end, opts)
+          --
         end,
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clojure_lsp', 'lua_ls'  },
+        ensure_installed = { 'clojure_lsp', 'lua_ls', 'pyright' },
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
