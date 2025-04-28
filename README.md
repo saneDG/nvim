@@ -25,14 +25,18 @@ keymaps: https://github.com/saneDG/nvim/blob/main/lua/keymaps.lua
 
 package manager: https://github.com/folke/lazy.nvim
 
+---
+
 Personal notes:
+
+Banger guide: https://thevaluable.dev/vim-commands-beginner/
 
 Basic keystrokes to move quickly on a line in NORMAL mode:
 
     w - move forward to the next word. A word - by default - is a sequence containing letters, digits, or underscores.
     b - move back your cursor to the previous word
     0 - move to the beginning of the current line.
-    + - (nordic mac layout. otherwise: ^) move to the first non-blank character on the current line.
+    + - move to the first non-blank character on the current line. (nordic mac layout. otherwise: ^)
     $ - move to the end of the current line.
     % - move to the matching bracket when the cursor is already on a bracket.
 
