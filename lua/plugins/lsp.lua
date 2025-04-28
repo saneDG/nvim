@@ -74,6 +74,8 @@ return {
             end
           end),
           ['<Esc>'] = cmp.mapping.abort(),
+          ['<Tab>'] = nil,
+          ['<S-Tab>'] = nil
         }),
         formatting = cmp_format,
       })
