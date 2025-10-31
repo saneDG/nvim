@@ -15,7 +15,7 @@ keymap('v', 'H', '^', opts)
 keymap('v', 'L', '$', opts)
 
 -- delete to _ register, then P to not overwrite register
-keymap('x', '<leader>p', '\"_dP', opts)
+keymap('x', '<leade>p', '\"_dP', opts)
 
 -- Move between splits
 keymap('n', '<leader>h', ':wincmd h<cr>', opts)
@@ -33,3 +33,7 @@ keymap('v', '<C-k>', ":m '<-2<cr>gv=gv", opts)
 keymap('v', '<C-j>', ":m '>+1<cr>gv=gv", opts)
 
 vim.keymap.set('n', '<leader>pv', "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- save/load session
+keymap('n', '<leader>ss', ':mksession! ~/.config/vim_sessions/session.vim<CR>', opts)
+keymap('n', '<leader>sl', ':source ~/.config/vim_sessions/session.vim<CR>', opts)

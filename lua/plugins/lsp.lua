@@ -21,6 +21,7 @@ return {
     opts = {
       formatters_by_ft = {
         python = { "black" },
+        prisma = { "prisma-fmt" },
       },
     },
   },
@@ -158,7 +159,7 @@ return {
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clojure_lsp', 'lua_ls', 'pyright' },
+        ensure_installed = { 'clojure_lsp', 'lua_ls', 'pyright', 'postgres_lsp', 'prismals' },
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
